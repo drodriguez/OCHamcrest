@@ -12,10 +12,19 @@
 #import "HCStringDescription.h"
 #import "HCMatcher.h"
 
+//#define HC_XCTEST 1
+#if HC_XCTEST
+#import <XCTest/XCTest.h>
+#endif
 
 static inline BOOL isLinkedToOCUnit()
 {
-    return NSClassFromString(@"XCTestCase") != Nil || NSClassFromString(@"SenTestCase") != Nil;
+    return NSClassFromString(@"SenTestCase") != Nil;
+}
+
+static inline BOOL isLinkedToXCTest()
+{
+    return NSClassFromString(@"XCTestCase") != Nil;
 }
 
 /**
@@ -59,8 +68,8 @@ static NSException *createOCUnitException(const char* fileName, int lineNumber, 
 
 static NSException *createGenericException(const char *fileName, int lineNumber, NSString *description)
 {
-    NSString *failureReason = [NSString stringWithFormat:@"%s:%d: matcher error: %@",
-                               fileName, lineNumber, description];
+    NSString *failureReason = [NSString stringWithFormat:@"%s:%lu: matcher error: %@",
+                               fileName, (unsigned long)lineNumber, description];
     return [NSException exceptionWithName:@"Hamcrest Error" reason:failureReason userInfo:nil];
 }
 
@@ -72,8 +81,23 @@ static NSException *createAssertThatFailure(const char *fileName, int lineNumber
         return createGenericException(fileName, lineNumber, description);
 }
 
+static NSString *makeStringDescribingMismatch(id matcher, id actual)
+{
+    HCStringDescription *description = [HCStringDescription stringDescription];
+    [[[description appendText:@"Expected "]
+          appendDescriptionOf:matcher]
+                   appendText:@", but "];
+    [matcher describeMismatchOf:actual to:description];
+    return [description description];
+}
 
-#pragma mark -
+#ifdef HC_XCTEST
+static void signalXCTestFailure(id testCase, const char *fileName, int lineNumber, NSString *description)
+{
+    _XCTFailureHandler(testCase, YES, fileName, (NSUInteger)lineNumber,
+                       _XCTFailureDescription(_XCTAssertion_Fail, 0), description);
+}
+#endif
 
 // As of 2010-09-09, the iPhone simulator has a bug where you can't catch
 // exceptions when they are thrown across NSInvocation boundaries. (See
@@ -84,19 +108,25 @@ static NSException *createAssertThatFailure(const char *fileName, int lineNumber
 - (void)failWithException:(NSException *)exception;
 @end
 
+static void signalLegacyTestFailure(id testCase, const char *fileName, int lineNumber, NSString *description)
+{
+    NSException *exception = createAssertThatFailure(fileName, lineNumber, description);
+    [testCase failWithException:exception];
+}
+
 void HC_assertThatWithLocation(id testCase, id actual, id<HCMatcher> matcher,
                                            const char *fileName, int lineNumber)
 {
     if (![matcher matches:actual])
     {
-        HCStringDescription *description = [HCStringDescription stringDescription];
-        [[[description appendText:@"Expected "]
-                       appendDescriptionOf:matcher]
-                       appendText:@", but "];
-        [matcher describeMismatchOf:actual to:description];
-        
-        NSException *assertThatFailure = createAssertThatFailure(fileName, lineNumber,
-                                                                 [description description]);
-        [testCase failWithException:assertThatFailure];
+        NSString *description = makeStringDescribingMismatch(matcher, actual);
+#ifdef HC_XCTEST
+        if (isLinkedToXCTest())
+            signalXCTestFailure(testCase, fileName, lineNumber, description);
+        else
+#endif
+        {
+            signalLegacyTestFailure(testCase, fileName, lineNumber, description);
+        }
     }
 }
