@@ -11,11 +11,7 @@
 
 #import "HCStringDescription.h"
 #import "HCMatcher.h"
-
-//#define HC_XCTEST 1
-#if HC_XCTEST
 #import <XCTest/XCTest.h>
-#endif
 
 static inline BOOL isLinkedToOCUnit()
 {
@@ -91,14 +87,6 @@ static NSString *makeStringDescribingMismatch(id matcher, id actual)
     return [description description];
 }
 
-#ifdef HC_XCTEST
-static void signalXCTestFailure(id testCase, const char *fileName, int lineNumber, NSString *description)
-{
-    _XCTFailureHandler(testCase, YES, fileName, (NSUInteger)lineNumber,
-                       _XCTFailureDescription(_XCTAssertion_Fail, 0), description);
-}
-#endif
-
 // As of 2010-09-09, the iPhone simulator has a bug where you can't catch
 // exceptions when they are thrown across NSInvocation boundaries. (See
 // dmaclach's comment at http://openradar.appspot.com/8081169 ) So instead of
@@ -108,9 +96,21 @@ static void signalXCTestFailure(id testCase, const char *fileName, int lineNumbe
 - (void)failWithException:(NSException *)exception;
 @end
 
-static void signalLegacyTestFailure(id testCase, const char *fileName, int lineNumber, NSString *description)
+static void signalOCUnitTestFailure(id testCase, const char *fileName, int lineNumber, NSString *description)
 {
-    NSException *exception = createAssertThatFailure(fileName, lineNumber, description);
+    NSException *exception = createOCUnitException(fileName, lineNumber, description);
+    [testCase failWithException:exception];
+}
+
+static void signalXCTestFailure(id testCase, const char *fileName, int lineNumber, NSString *description)
+{
+    _XCTFailureHandler(testCase, YES, fileName, (NSUInteger)lineNumber,
+                       _XCTFailureDescription(_XCTAssertion_Fail, 0), description);
+}
+
+static void signalGenericTestFailure(id testCase, const char *fileName, int lineNumber, NSString *description)
+{
+    NSException *exception = createGenericException(fileName, lineNumber, description);
     [testCase failWithException:exception];
 }
 
@@ -120,13 +120,11 @@ void HC_assertThatWithLocation(id testCase, id actual, id<HCMatcher> matcher,
     if (![matcher matches:actual])
     {
         NSString *description = makeStringDescribingMismatch(matcher, actual);
-#ifdef HC_XCTEST
-        if (isLinkedToXCTest())
+        if (isLinkedToOCUnit())
+            signalOCUnitTestFailure(testCase, fileName, lineNumber, description);
+        else if (isLinkedToXCTest())
             signalXCTestFailure(testCase, fileName, lineNumber, description);
         else
-#endif
-        {
-            signalLegacyTestFailure(testCase, fileName, lineNumber, description);
-        }
+            signalGenericTestFailure(testCase, fileName, lineNumber, description);
     }
 }

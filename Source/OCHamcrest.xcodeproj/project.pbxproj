@@ -38,6 +38,8 @@
 		0802654C134597C000A8DCCA /* HCStringStartsWith.m in Sources */ = {isa = PBXBuildFile; fileRef = 087602FD13440A9F001B439B /* HCStringStartsWith.m */; };
 		0802654D134597C000A8DCCA /* HCSubstringMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 087602FF13440A9F001B439B /* HCSubstringMatcher.m */; };
 		0802654E134597C000A8DCCA /* HCWrapInMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 0876024113440A83001B439B /* HCWrapInMatcher.m */; };
+		0817684917B9D8000004154F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817684817B9D8000004154F /* XCTest.framework */; };
+		0817684A17B9D80C0004154F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817684817B9D8000004154F /* XCTest.framework */; };
 		0817B5CD147EC45200C5401D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817B5CC147EC45200C5401D /* SenTestingKit.framework */; };
 		0817B5CE147EC45200C5401D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817B5CC147EC45200C5401D /* SenTestingKit.framework */; };
 		081BEE631345979F003F846A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 087601EA13440807001B439B /* Foundation.framework */; };
@@ -106,6 +108,8 @@
 		0846B6FC13EE5FD200EA68E8 /* IsNilTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846B6F513EE5FD200EA68E8 /* IsNilTest.m */; };
 		0846B6FD13EE5FD200EA68E8 /* IsSameTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846B6F613EE5FD200EA68E8 /* IsSameTest.m */; };
 		0846B6FE13EE5FD200EA68E8 /* IsSameTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846B6F613EE5FD200EA68E8 /* IsSameTest.m */; };
+		0848D94F17B9D92F003847FB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817684817B9D8000004154F /* XCTest.framework */; };
+		0848D95017B9D930003847FB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817684817B9D8000004154F /* XCTest.framework */; };
 		0850A44E17165D2A0019BBE0 /* SomeClassAndSubclass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0850A44D17165D2A0019BBE0 /* SomeClassAndSubclass.m */; };
 		0850A44F17165D2A0019BBE0 /* SomeClassAndSubclass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0850A44D17165D2A0019BBE0 /* SomeClassAndSubclass.m */; };
 		0850A4521716624B0019BBE0 /* HCClassMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 0850A4501716624A0019BBE0 /* HCClassMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -265,6 +269,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0817684817B9D8000004154F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0817B5CC147EC45200C5401D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		081BEE621345979F003F846A /* libochamcrest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libochamcrest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		081BEE6C1345979F003F846A /* libochamcrestTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libochamcrestTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -433,6 +438,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0817684A17B9D80C0004154F /* XCTest.framework in Frameworks */,
 				081BEE631345979F003F846A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +450,7 @@
 				081BEE6E1345979F003F846A /* Foundation.framework in Frameworks */,
 				0817B5CE147EC45200C5401D /* SenTestingKit.framework in Frameworks */,
 				081BEE721345979F003F846A /* libochamcrest.a in Frameworks */,
+				0848D95017B9D930003847FB /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +458,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0817684917B9D8000004154F /* XCTest.framework in Frameworks */,
 				0876039213440E28001B439B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +470,7 @@
 				081BEE9613459FB2003F846A /* Foundation.framework in Frameworks */,
 				087601FB13440807001B439B /* OCHamcrest.framework in Frameworks */,
 				0817B5CD147EC45200C5401D /* SenTestingKit.framework in Frameworks */,
+				0848D94F17B9D92F003847FB /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +566,7 @@
 		087601E413440806001B439B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0817684817B9D8000004154F /* XCTest.framework */,
 				087601EA13440807001B439B /* Foundation.framework */,
 				0817B5CC147EC45200C5401D /* SenTestingKit.framework */,
 			);
@@ -964,7 +974,7 @@
 		087601D813440806001B439B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = hamcrest.org;
 			};
 			buildConfigurationList = 087601DB13440806001B439B /* Build configuration list for PBXProject "OCHamcrest" */;
@@ -1296,8 +1306,13 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/libochamcrest.dst;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-fobjc-arc-exceptions";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ochamcrest;
@@ -1310,8 +1325,13 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/libochamcrest.dst;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-fobjc-arc-exceptions";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ochamcrest;
@@ -1324,14 +1344,16 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = "Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = octest;
@@ -1343,12 +1365,14 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				INFOPLIST_FILE = "Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = octest;
@@ -1389,17 +1413,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				INFOPLIST_FILE = "OCHamcrest-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CFLAGS = "-fobjc-arc-exceptions";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1411,17 +1438,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				INFOPLIST_FILE = "OCHamcrest-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CFLAGS = "-fobjc-arc-exceptions";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1433,15 +1463,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				INFOPLIST_FILE = "Tests-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = octest;
@@ -1452,15 +1484,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				INFOPLIST_FILE = "Tests-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = octest;
