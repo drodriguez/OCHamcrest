@@ -69,14 +69,6 @@ static NSException *createGenericException(const char *fileName, int lineNumber,
     return [NSException exceptionWithName:@"Hamcrest Error" reason:failureReason userInfo:nil];
 }
 
-static NSException *createAssertThatFailure(const char *fileName, int lineNumber, NSString *description)
-{
-    if (isLinkedToOCUnit())
-        return createOCUnitException(fileName, lineNumber, description);
-    else
-        return createGenericException(fileName, lineNumber, description);
-}
-
 static NSString *makeStringDescribingMismatch(id matcher, id actual)
 {
     HCStringDescription *description = [HCStringDescription stringDescription];
