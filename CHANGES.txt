@@ -1,3 +1,8 @@
+== Version 3.0.0 == *still in development*
+
+The 2.1.0 "Added support for XCTest" was undone as XCTest changed. 3.0.0 addresses XCTest support, but also requires XCTest.
+
+
 == Version 2.1.0 ==
 23 Jun 2013
 
