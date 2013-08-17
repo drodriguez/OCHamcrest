@@ -64,8 +64,8 @@ static NSException *createOCUnitException(const char* fileName, int lineNumber, 
 
 static NSException *createGenericException(const char *fileName, int lineNumber, NSString *description)
 {
-    NSString *failureReason = [NSString stringWithFormat:@"%s:%lu: matcher error: %@",
-                               fileName, (unsigned long)lineNumber, description];
+    NSString *failureReason = [NSString stringWithFormat:@"%s:%d: matcher error: %@",
+                               fileName, lineNumber, description];
     return [NSException exceptionWithName:@"Hamcrest Error" reason:failureReason userInfo:nil];
 }
 
@@ -97,7 +97,7 @@ static void signalOCUnitTestFailure(id testCase, const char *fileName, int lineN
 static void signalXCTestFailure(id testCase, const char *fileName, int lineNumber, NSString *description)
 {
     _XCTFailureHandler(testCase, YES, fileName, (NSUInteger)lineNumber,
-                       _XCTFailureDescription(_XCTAssertion_Fail, 0), description);
+                       _XCTFailureDescription(_XCTAssertion_Fail, 0), description, nil);
 }
 
 static void signalGenericTestFailure(id testCase, const char *fileName, int lineNumber, NSString *description)
