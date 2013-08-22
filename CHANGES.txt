@@ -1,16 +1,17 @@
 == Version 3.0.0 == *still in development*
 
-The 2.1.0 "Added support for XCTest" was undone as XCTest changed. 3.0.0 addresses XCTest support, but also requires XCTest.
+* Features:
+  - Added support for Xcode 5. Now requires XCTest to be linked.
+
+* Project changes:
+  - Increased deployment targets to Mac OS X 10.8, iOS 6.0.
 
 
 == Version 2.1.0 ==
 23 Jun 2013
 
-* Features:
-  - Added support for XCTest.
-
 * Project changes:
-  - Increased deployment targets to Mac OS X 10.6, iOS 5.0.
+  - Increased deployment targets to Mac OS X 10.7, iOS 5.0.
 
 * Fixes:
   - Make build script flexible so that doxygen isn't required, or can be in a different location. Thanks to: Bennett Smith
